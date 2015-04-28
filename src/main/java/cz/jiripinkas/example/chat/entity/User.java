@@ -11,6 +11,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+
 @Entity
 @NamedQueries({
 		@NamedQuery(name = User.FIND_ALL, query = "select distinct u from User u left join fetch u.userRoles ur left join fetch ur.role"),
@@ -37,7 +39,12 @@ public class User {
 
 	@Size(min = 1, message = "Password must not be empty!")
 	private String password;
+	
 
+	@Size(min = 1, message = "Invalid email address!")
+	@Email(message = "Invalid email address!")
+	private String email;
+	
 	private boolean enabled;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
@@ -77,7 +84,15 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	public String getPassword() {
 		return password;
 	}
