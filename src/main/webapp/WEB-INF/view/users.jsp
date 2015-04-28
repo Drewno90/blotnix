@@ -14,6 +14,7 @@
 			<th>name</th>
 			<th>enabled</th>
 			<th>roles</th>
+			<th>email</th>
 			<th>remove</th>
 			<th>edit</th>
 		</tr>
@@ -29,6 +30,7 @@
 						<br/>
 					</c:forEach>
 				</td>
+				<td>${user.email} </td>
 				<td>
 					<a href="users/delete.html?id=${user.id}" 
 					   class="btn btn-primary btn-danger btn-remove">remove</a>

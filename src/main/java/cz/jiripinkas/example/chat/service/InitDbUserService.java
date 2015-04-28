@@ -21,11 +21,13 @@ public class InitDbUserService {
 		User userAdmin = new User();
 		userAdmin.setName("admin");
 		userAdmin.setPassword("admin");
+		userAdmin.setEmail("admin@o2.pl");
 		entityManager.persist(userAdmin);
 
 		User userGuest = new User();
 		userGuest.setName("guest");
 		userGuest.setPassword("guest");
+		userGuest.setEmail("guest@o2.pl");
 		entityManager.persist(userGuest);
 
 		Role roleUser = new Role();

@@ -16,7 +16,7 @@
 		<form:errors path="password" /><br />
 		<form:password path="password" cssClass="form-control" placeholder="Password" /><br />
 		<form:errors path="email" /><br />
-		<form:password path="email" cssClass="form-control" placeholder="Email" /><br />
+		<form:input path="email" cssClass="form-control" placeholder="Email" /><br />
 		<input type="submit" class="btn btn-primary" />
 	</div>
 </form:form>

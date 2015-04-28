@@ -19,6 +19,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 		<intercept-url pattern="/users/edit.html*" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/log.html*" />
 		<intercept-url pattern="/logout.html*" />
+		<intercept-url pattern="/emailForm*" access="hasRole('ROLE_USER')" />
 	</http>
 
 	<authentication-manager>
