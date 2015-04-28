@@ -4,6 +4,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
 <html>
 <head>
 <title>${param.title}</title>
@@ -44,19 +46,20 @@
 					<security:authorize access="isAuthenticated()" var="loggedIn" />
 					<c:choose>
 						<c:when test="${loggedIn}">
+						     <li><a href="<spring:url value="/logout" />">Logout</a></li>
 						
-							<li><a href="/logout">Logout ${pageContext.request.remoteUser}</a></li>
-							<security:authorize access="hasRole('ROLE_ADMIN')">
-							<li class="${param.page == 'usersAdd' ? 'active' : ''}"><a href="<c:url value="/users/add.html" />">Register new user</a></li>
-							</security:authorize>
+							
 						</c:when>
 						<c:otherwise>
-							<li class="${param.page == 'login' ? 'active' : ''}"><a href="/login.jsp">Login</a></li>
-
+						
+							<li class="${param.page == 'login' ? 'active' : ''}"><a href="<c:url value="/log.html" />">Login</a></li>
 						</c:otherwise>
 					</c:choose>
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<li class="${param.page == 'users' ? 'active' : ''}"><a href="<c:url value="/users.html" />">Users</a></li>
+					</security:authorize>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+							<li class="${param.page == 'usersAdd' ? 'active' : ''}"><a href="<c:url value="/users/add.html" />">Register new user</a></li>
 					</security:authorize>
 				</ul>
 			</div>
