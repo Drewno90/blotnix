@@ -37,6 +37,7 @@
 					<li class="${param.page == 'kontakt' ? 'active' : ''}"><a href="<c:url value="/kontakt.html" />">Kontakt</a></li>
 					<li class="${param.page == 'raporty' ? 'active' : ''}"><a href="<c:url value="/raporty.html" />">Raporty</a></li>
 					<li class="${param.page == 'emailForm' ? 'active' : ''}"><a href="<c:url value="/emailForm.html" />">SendEmail</a></li>
+					<li class="${param.page == 'recvForm' ? 'active' : ''}"><a href="<c:url value="/recvForm.html" />">RecvEmail</a></li>
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<li class="${param.page == 'chatroom' ? 'active' : ''}"><a href="<c:url value="/chatroom.html" />">New Chatroom</a></li>
 					</security:authorize>

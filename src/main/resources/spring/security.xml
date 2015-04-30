@@ -20,6 +20,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 		<intercept-url pattern="/log.html*" />
 		<intercept-url pattern="/logout.html*" />
 		<intercept-url pattern="/emailForm*" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/recvForm*" access="hasRole('ROLE_USER')" />
 	</http>
 
 	<authentication-manager>
