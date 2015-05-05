@@ -30,6 +30,13 @@ public class InitDbUserService {
 		userGuest.setEmail("guest@o2.pl");
 		entityManager.persist(userGuest);
 
+		
+		User userKonst = new User();
+		userKonst.setName("konstruktor1");
+		userKonst.setPassword("konst");
+		userKonst.setEmail("konstr264@o2.pl");
+		entityManager.persist(userKonst);
+		
 		Role roleUser = new Role();
 		roleUser.setName("ROLE_USER");
 		entityManager.persist(roleUser);
@@ -53,5 +60,9 @@ public class InitDbUserService {
 		userRoleUser2.setUser(userAdmin);
 		entityManager.persist(userRoleUser2);
 
+		UserRole userRoleUser3 = new UserRole();
+		userRoleUser3.setRole(roleUser);
+		userRoleUser3.setUser(userKonst);
+		entityManager.persist(userRoleUser3);
 	}
 }

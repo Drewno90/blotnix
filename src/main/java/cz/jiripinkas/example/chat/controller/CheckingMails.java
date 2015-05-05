@@ -1,12 +1,16 @@
 package cz.jiripinkas.example.chat.controller;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
+import javax.mail.Address;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CheckingMails {
 
    public static void check(String host, String storeType, String user,
-      String password) 
+      String password, HttpServletRequest request) 
    {
       try {
 
@@ -35,7 +39,14 @@ public class CheckingMails {
       //create the folder object and open it
       Folder emailFolder = store.getFolder("INBOX");
       emailFolder.open(Folder.READ_ONLY);
+      
+      Address senderAddress;
+      String subject;
+      String tekst;
 
+      List <String> subjects = new ArrayList<String>();
+      List <Address> senders = new ArrayList<Address>();
+      List <String> teksts = new ArrayList<String>();     
       // retrieve the messages from the folder in an array and print it
       Message[] messages = emailFolder.getMessages();
       System.out.println("messages.length---" + messages.length);
@@ -44,12 +55,20 @@ public class CheckingMails {
          Message message = messages[i];
          System.out.println("---------------------------------");
          System.out.println("Email Number " + (i + 1));
-         System.out.println("Subject: " + message.getSubject());
-         System.out.println("From: " + message.getFrom()[0]);
-         System.out.println("Text: " + message.getContent().toString());
+         subject=message.getSubject();
+         subjects.add(subject);
+         System.out.println("Subject: " + subject);
+         senderAddress=message.getFrom()[0];
+         senders.add(senderAddress);
+         System.out.println("From: " + senderAddress);
+         tekst=message.getContent().toString();
+         teksts.add(tekst);
+         System.out.println("Text: " + tekst);
 
       }
-
+      request.setAttribute("subject", subjects);
+      request.setAttribute("senderAddress", senders);
+      request.setAttribute("tekst", teksts);
       //close the store and folder objects
       emailFolder.close(false);
       store.close();
@@ -64,15 +83,15 @@ public class CheckingMails {
     }
    
    @RequestMapping("/checkEmail.do")
-   public static String main(String[] args) {
+   public static String main(String[] args ,HttpServletRequest request) {
 
       String host = "pop.gmail.com";// change accordingly
       String mailStoreType = "pop3";
-      String username = "ttest8085@gmail.com";// change accordingly
+      String username = "konstr264@gmail.com";// change accordingly
       String password = "qazplm10";// change accordingly
 
-      check(host, mailStoreType, username, password);
-	return "index";
+      check(host, mailStoreType, username, password, request);
+	return "recvForm";
 
    }
 
