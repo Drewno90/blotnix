@@ -40,8 +40,11 @@
 					<li class="${param.page == 'recvForm' ? 'active' : ''}"><a href="<c:url value="/recvForm.html" />">RecvEmail</a></li>
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<li class="${param.page == 'chatroom' ? 'active' : ''}"><a href="<c:url value="/chatroom.html" />">New Chatroom</a></li>
+						<li class="${param.page == 'task' ? 'active' : ''}"><a href="<c:url value="/task.html" />">New Task</a></li>
+			
 					</security:authorize>
 					<li class="${param.page == 'list' ? 'active' : ''}"><a href="<c:url value="/chatroom/list.html" />">Chatroom List</a></li>
+					<li class="${param.page == 'tasklist' ? 'active' : ''}"><a href="<c:url value="/task/tasklist.html" />">Task List</a></li>
 			
 			
 					<security:authorize access="isAuthenticated()" var="loggedIn" />

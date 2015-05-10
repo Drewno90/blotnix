@@ -6,5 +6,6 @@
 		<class>cz.jiripinkas.example.chat.entity.User</class>
 		<class>cz.jiripinkas.example.chat.entity.Role</class>
 		<class>cz.jiripinkas.example.chat.entity.UserRole</class>
+		<class>cz.jiripinkas.example.chat.entity.Task</class>
 	</persistence-unit>
 </persistence>

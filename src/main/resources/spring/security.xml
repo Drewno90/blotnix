@@ -21,6 +21,8 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 		<intercept-url pattern="/logout.html*" />
 		<intercept-url pattern="/emailForm*" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/recvForm*" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/task*" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/task/list*" access="hasRole('ROLE_USER')" />
 	</http>
 
 	<authentication-manager>
