@@ -45,4 +45,10 @@
         </property>
     </bean>    
     
+    
+    <bean id="fileValidator" class="validator.FileValidator" />  
+  
+ <bean id="multipartResolver"  
+  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />  
+    
 </beans>
