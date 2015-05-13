@@ -42,6 +42,7 @@ public class Task {
 
 	public void setUsers(ArrayList<User> users) {
 		this.users = users;
+
 	}
 
 	public void setId(int id) {

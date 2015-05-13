@@ -58,7 +58,7 @@
 		<div class="form-group">
 		<label for="inputPassword" class="col-sm-1 control-label">Who:</label>
 		<div class="col-sm-5">
-			<form:select cssClass="form-control" placeholder="Users" path="users" items="${task.users}"/>
+			<form:select cssClass="form-control" placeholder="Users" path="users" items="${userList}"/>
 		</div>
 	</div>
 	<div class="form-group">

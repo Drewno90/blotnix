@@ -26,7 +26,7 @@
 				<td>${task.description}</td>
 				<td>${task.fromDate}</td>
 				<td>${task.toDate}</td>
-				<td>${user.name}</td>
+				<td>${task.name}</td>
 				<td>
 					<a href="remove.html?id=${task.id}" class="btn btn-primary btn-danger btn-remove">remove</a>
 				</td>

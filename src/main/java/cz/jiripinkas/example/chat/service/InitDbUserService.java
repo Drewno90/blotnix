@@ -1,5 +1,9 @@
 package cz.jiripinkas.example.chat.service;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -7,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import cz.jiripinkas.example.chat.annotation.TransactionalRW;
 import cz.jiripinkas.example.chat.entity.Role;
+import cz.jiripinkas.example.chat.entity.Task;
 import cz.jiripinkas.example.chat.entity.User;
 import cz.jiripinkas.example.chat.entity.UserRole;
 
@@ -18,12 +23,22 @@ public class InitDbUserService {
 	private EntityManager entityManager;
 
 	public void init() {
+		
+		Map referenceData = new HashMap();
+		Map<String,String> users = new LinkedHashMap<String,String>();
+		users.put("admin", "Admin");
+		users.put("guest", "Guest");
+		users.put("konstruktor1", "Konstruktor1");
+		
+		referenceData.put("userList", users);
+		
 		User userAdmin = new User();
 		userAdmin.setName("admin");
 		userAdmin.setPassword("admin");
 		userAdmin.setEmail("admin@o2.pl");
 		entityManager.persist(userAdmin);
-
+		
+		
 		User userGuest = new User();
 		userGuest.setName("guest");
 		userGuest.setPassword("guest");
