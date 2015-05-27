@@ -2,9 +2,11 @@
 <html>
 <head>
 
+
+
 <jsp:include page="layout/header.jsp">
-	<jsp:param value="UploadForm" name="title" />
-	<jsp:param value="uploadForm" name="page" />
+	<jsp:param value="Upload" name="title" />
+	<jsp:param value="upload" name="page" />
 </jsp:include>
 </head>
 <body>

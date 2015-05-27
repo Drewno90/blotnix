@@ -13,6 +13,7 @@
   <h3>
    File name : "<strong> ${message}</strong>" uploaded successfully !
   </h3>
+  <img src="http://localhost:8080/blotnix/upload/${message}" alt="Download" border="0" align="center">
 
  </center>
 </body>

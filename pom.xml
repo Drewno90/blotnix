@@ -259,9 +259,8 @@
 		</dependency>
 	</dependencies>
 
-	<build>
+	<build>		
 		<plugins>
-
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>

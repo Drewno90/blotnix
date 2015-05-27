@@ -8,9 +8,11 @@ import java.io.OutputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,7 +23,13 @@ import validator.FileValidator;
 
 public class UploadController {
 	
-
+	@RequestMapping(value = "/upload", method = RequestMethod.GET)
+	public String printWelcome(ModelMap model) {
+ 
+		model.addAttribute("message", "Sample code!");
+		return "upload";
+ 
+	}
  @Autowired
  FileValidator fileValidator;
 
@@ -51,7 +59,7 @@ public class UploadController {
   try {
    inputStream = file.getInputStream();
 
-   File newFile = new File("D:/" + fileName);
+   File newFile = new File("D:/java 2/Projekt_pw/blotnix/src/main/webapp/upload/" + fileName);
    if (!newFile.exists()) {
     newFile.createNewFile();
    }
