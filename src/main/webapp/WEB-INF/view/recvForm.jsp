@@ -15,28 +15,32 @@
 <body>
     <center>
         <h1>Receving e-mail</h1>
-        <form method="get" action="checkEmail.do">
-            <table border="0" width="80%">
-                <tr>
-                    <td>From:</td>
-                    <td><% out.println(request.getAttribute("senderAddress")); %></td>
-                </tr>
-                <tr>
-                    <td>Subject:</td>
-                    <td><% out.println(request.getAttribute("subject")); %></td>
-                </tr>
-                <tr>
-                    <td>Message:</td>
-                    <td><% out.println(request.getAttribute("tekst")); %></textarea></td>
-                </tr>               
-                
-                
-                
+        <form method="post" action="checkEmail.do">
+            <table  class="table table-bordered table-striped table-hover">
+            <thead>
+				<tr>
+					<th>From</th>
+					<th>Subject</th>
+					<th>Message</th>
+				</tr>
+			</thead>
+			<tbody>
+
+                <tr> 
+			<td> ${subject} </td>
+			<td> ${senderAddress}</td>
+              
+			<td> ${tekst} </td>
+              
+                            </tr>              
+
+                </tbody>
                 <tr>
                     <td colspan="2" align="center">
                         <input type="submit" value="Recv E-mail" />
                     </td>
                 </tr>
+            
             </table>
         </form>
     </center>

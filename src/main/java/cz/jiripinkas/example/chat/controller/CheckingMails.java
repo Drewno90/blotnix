@@ -4,16 +4,24 @@ import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Address;
+import javax.mail.FetchProfile;
+import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
+import javax.mail.UIDFolder;
+import javax.mail.search.AndTerm;
+import javax.mail.search.FlagTerm;
+import javax.mail.search.SearchTerm;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 public class CheckingMails {
@@ -22,7 +30,7 @@ public class CheckingMails {
       String password, HttpServletRequest request) 
    {
       try {
-
+      properties.put("mail.store.protocol", "pop3s");
       //create properties field
       Properties properties = new Properties();
 
@@ -47,8 +55,9 @@ public class CheckingMails {
       List <String> subjects = new ArrayList<String>();
       List <Address> senders = new ArrayList<Address>();
       List <String> teksts = new ArrayList<String>();     
-      // retrieve the messages from the folder in an array and print it
-      Message[] messages = emailFolder.getMessages();
+
+      Message[] messages = emailFolder.getMessages();      
+      Model model = null;
       System.out.println("messages.length---" + messages.length);
 
       for (int i = 0, n = messages.length; i < n; i++) {
@@ -69,8 +78,10 @@ public class CheckingMails {
       request.setAttribute("subject", subjects);
       request.setAttribute("senderAddress", senders);
       request.setAttribute("tekst", teksts);
+
       //close the store and folder objects
-      emailFolder.close(false);
+
+      emailFolder.close(true);
       store.close();
 
       } catch (NoSuchProviderException e) {
@@ -85,14 +96,16 @@ public class CheckingMails {
    @RequestMapping("/checkEmail.do")
    public static String main(String[] args ,HttpServletRequest request) {
 
-      String host = "pop.gmail.com";// change accordingly
-      String mailStoreType = "pop3";
-      String username = "konstr264@gmail.com";// change accordingly
-      String password = "qazplm10";// change accordingly
+	      String host = "pop.gmail.com";// change accordingly
+	      String mailStoreType = "pop3";
+	      String username = "konstr264@gmail.com";// change accordingly
+	      String password = "qazplm10";// change accordingly
 
       check(host, mailStoreType, username, password, request);
 	return "recvForm";
 
    }
+
+
 
 }
