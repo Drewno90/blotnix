@@ -30,10 +30,11 @@ public class CheckingMails {
       String password, HttpServletRequest request) 
    {
       try {
-      properties.put("mail.store.protocol", "pop3s");
+    	  
+      
       //create properties field
       Properties properties = new Properties();
-
+      properties.put("mail.store.protocol", "pop3s");
       properties.put("mail.pop3.host", host);
       properties.put("mail.pop3.port", "995");
       properties.put("mail.pop3.starttls.enable", "true");
@@ -52,6 +53,9 @@ public class CheckingMails {
       String subject;
       String tekst;
 
+      List <List> emails = new ArrayList<List>();
+      List <String> email = new ArrayList<String>();
+      
       List <String> subjects = new ArrayList<String>();
       List <Address> senders = new ArrayList<Address>();
       List <String> teksts = new ArrayList<String>();     
@@ -61,6 +65,7 @@ public class CheckingMails {
       System.out.println("messages.length---" + messages.length);
 
       for (int i = 0, n = messages.length; i < n; i++) {
+    	  email = new ArrayList<String>();
          Message message = messages[i];
          System.out.println("---------------------------------");
          System.out.println("Email Number " + (i + 1));
@@ -73,8 +78,18 @@ public class CheckingMails {
          tekst=message.getContent().toString();
          teksts.add(tekst);
          System.out.println("Text: " + tekst);
-
+         
+         email.add(subject);
+         email.add(senderAddress.toString());
+         email.add(tekst);
+        
+         emails.add(email);
+         
+         
+         
+         
       }
+      request.setAttribute("emails", emails);
       request.setAttribute("subject", subjects);
       request.setAttribute("senderAddress", senders);
       request.setAttribute("tekst", teksts);

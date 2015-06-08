@@ -25,8 +25,8 @@
 	</div>
 	<table>
 		<tr>
-			<td><a href="upload/5_mid.jpg" download> <img
-					src="http://localhost:8080/blotnix/upload/5_mid.jpg" width="250px">
+			<td><a href="upload/01.jpg" download> <img
+					src="http://localhost:8080/blotnix/upload/01.jpg" width="250px">
 			</a><br />
 				<center>5_mid.jpg</center></td>
 			<td><a href="upload/6_mid.jpg" download> <img

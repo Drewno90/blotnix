@@ -2,6 +2,9 @@ package cz.jiripinkas.example.chat.controller;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +34,13 @@ public class Task_Controller {
 	private TaskService taskService;
 	
 	@RequestMapping
-	public String show() {
+	public String show(Model model) {
+		Map<String,String> users = new LinkedHashMap<String,String>();
+		users.put("admin", "Admin");
+		users.put("guest", "Guest");
+		users.put("konstruktor1", "Konstruktor1");
+		
+		model.addAttribute("userList", users);
 		return "task";
 	}
 
@@ -51,9 +60,12 @@ public class Task_Controller {
 	@RequestMapping(method = RequestMethod.POST)
 	public String save(@ModelAttribute @Valid Task task,
 			BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
+		
+		/*if (bindingResult.hasErrors()) {
+			System.out.println("test error");
 			return "task";
-		}
+		}*/
+		
 		taskService.save(task);
 		return "redirect:/task.html?success=true";
 	}
@@ -64,13 +76,13 @@ public class Task_Controller {
 		return "tasklist";
 	}
 
-
-
 	@RequestMapping("/remove")
 	public String remove(Model model, @RequestParam int id) {
 		taskService.delete(id);
 		return "redirect:/task/tasklist.html";
 	}
+	
+	
 
 	
 }

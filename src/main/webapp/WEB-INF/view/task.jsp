@@ -61,6 +61,7 @@
 			<form:select cssClass="form-control" placeholder="Users" path="users" items="${userList}"/>
 		</div>
 	</div>
+
 	<div class="form-group">
 		<div class="col-sm-5">
 			<input type="submit" class="btn btn-primary btnSubmit" />
@@ -78,6 +79,8 @@
 		});
 	});
 </script>
+
+
 
 
 <jsp:include page="layout/footer.jsp" />
