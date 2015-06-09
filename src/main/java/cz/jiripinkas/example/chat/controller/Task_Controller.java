@@ -36,11 +36,15 @@ public class Task_Controller {
 	@RequestMapping
 	public String show(Model model) {
 		Map<String,String> users = new LinkedHashMap<String,String>();
+		Map<String,String> selectedUser = new LinkedHashMap<String,String>();
 		users.put("admin", "Admin");
 		users.put("guest", "Guest");
 		users.put("konstruktor1", "Konstruktor1");
 		
 		model.addAttribute("userList", users);
+		users.put("guest", "Guest");
+		users.put("konstruktor1", "Konstruktor1");
+		model.addAttribute("selectedUser", selectedUser);
 		return "task";
 	}
 

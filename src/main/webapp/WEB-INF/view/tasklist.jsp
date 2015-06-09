@@ -26,7 +26,9 @@
 				<td>${task.description}</td>
 				<td>${task.fromDate}</td>
 				<td>${task.toDate}</td>
-				<td>${task.name}</td>
+				<td><c:forEach items="${task.selectedUser}" var="select">
+        <c:out value="${select}" /> <br/>
+</c:forEach></td>
 				<td>
 					<a href="remove.html?id=${task.id}" class="btn btn-primary btn-danger btn-remove">remove</a>
 				</td>

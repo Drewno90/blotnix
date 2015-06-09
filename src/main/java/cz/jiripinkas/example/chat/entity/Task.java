@@ -31,6 +31,7 @@ public class Task {
 	private Date toDate;
 	
 	private ArrayList<User> users; 
+	String selectedUser;
 	
 	public int getId() {
 		return id;
@@ -79,6 +80,14 @@ public class Task {
 
 	public void setToDate(Date toDate) {
 		this.toDate = toDate;
+	}
+
+	public String getSelectedUser() {
+		return selectedUser;
+	}
+
+	public void setSelectedUser(String selectedUser) {
+		this.selectedUser = selectedUser;
 	}
 
 
