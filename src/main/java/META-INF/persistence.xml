@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="blotnix">
-		<class>cz.jiripinkas.example.chat.entity.Chatmessage</class>
-		<class>cz.jiripinkas.example.chat.entity.Chatroom</class>
-		<class>cz.jiripinkas.example.chat.entity.User</class>
-		<class>cz.jiripinkas.example.chat.entity.Role</class>
-		<class>cz.jiripinkas.example.chat.entity.UserRole</class>
-		<class>cz.jiripinkas.example.chat.entity.Task</class>
+		<class>entity.Chatmessage</class>
+		<class>entity.Chatroom</class>
+		<class>entity.User</class>
+		<class>entity.Role</class>
+		<class>entity.UserRole</class>
+		<class>entity.Task</class>
 	</persistence-unit>
 </persistence>

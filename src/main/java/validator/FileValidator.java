@@ -3,7 +3,7 @@ package validator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import cz.jiripinkas.example.chat.dto.UploadedFile;
+import dto.UploadedFile;
 
 public class FileValidator implements Validator {
 

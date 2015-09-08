@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><entities>
 	<entity>
-		<entity-name>cz.jiripinkas.example.chat.entity.UserRole</entity-name>
+		<entity-name>entity.UserRole</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>128</entity-height>
 		<entity-X-Coordinate>300</entity-X-Coordinate>
@@ -11,7 +11,7 @@
 	</entity>
 
 	<entity>
-		<entity-name>cz.jiripinkas.example.chat.entity.Chatroom</entity-name>
+		<entity-name>entity.Chatroom</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>166</entity-height>
 		<entity-X-Coordinate>470</entity-X-Coordinate>
@@ -22,7 +22,7 @@
 	</entity>
 
 	<entity>
-		<entity-name>cz.jiripinkas.example.chat.entity.Chatmessage</entity-name>
+		<entity-name>entity.Chatmessage</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>186</entity-height>
 		<entity-X-Coordinate>50</entity-X-Coordinate>
@@ -33,7 +33,7 @@
 	</entity>
 
 	<entity>
-		<entity-name>cz.jiripinkas.example.chat.entity.Role</entity-name>
+		<entity-name>entity.Role</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>146</entity-height>
 		<entity-X-Coordinate>535</entity-X-Coordinate>
@@ -44,7 +44,7 @@
 	</entity>
 
 	<entity>
-		<entity-name>cz.jiripinkas.example.chat.entity.User</entity-name>
+		<entity-name>entity.User</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>206</entity-height>
 		<entity-X-Coordinate>50</entity-X-Coordinate>
