@@ -17,7 +17,7 @@
 		<jstl.version>1.2</jstl.version>
 
 		<!-- Spring -->
-		<spring.version>3.2.8.RELEASE</spring.version>
+		<spring.version>3.2.18.RELEASE</spring.version>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.2.1.Final</hibernate.version>
@@ -29,7 +29,7 @@
 		<!-- Test -->
 		<junit.version>4.11</junit.version>
 
-		<spring.security.version>3.2.8.RELEASE</spring.security.version>
+		<spring.security.version>3.2.18.RELEASE</spring.security.version>
 
 	</properties>
 
